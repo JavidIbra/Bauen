@@ -1,0 +1,185 @@
+﻿@model Bauen.Models.Entities.Project
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Project</h1>
+
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-md-6 mb-3">
+                <input asp-for="Image" type="hidden" />
+
+                <label asp-for="img">Main Image</label>
+                <div>
+
+                    <input accept="image/*" class="form-control" type="file" asp-for="img" />
+                    <label>Choose file</label>
+                    <span asp-validation-for="img" class="text-danger small"></span>
+
+                </div>
+            </div>
+
+            <hr class="sidebar-divider" />
+
+
+            <div class="col-md-6 mb-3">
+                @*<input asp-for="Image" type="hidden" />*@
+
+                <label asp-for="ImgList">Project Images</label>
+                <div>
+
+                    <input accept="image/*" class="form-control"  asp-for="ImgList" />
+                    <label>Choose file</label>
+                    <span asp-validation-for="ImgList" class="text-danger small"></span>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3">
+
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="form-group">
+                        <label asp-for="Location" class="control-label"></label>
+                        <input asp-for="Location" class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="form-group">
+                        <label asp-for="Date" class="control-label"></label>
+                        <input asp-for="Date" class="form-control" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label asp-for="Company" class="control-label"></label>
+                        <input asp-for="Company" class="form-control" />
+                        <span asp-validation-for="Company" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 mb-4">
+                <label asp-for="Text"> </label>
+                <textarea class="form-control" asp-for="Text" id="bauen" cols="30" rows="10"></textarea>
+                <span class="text-danger small" asp-validation-for="Text"></span>
+
+            </div>
+
+
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+        @*<form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Text" class="control-label"></label>
+                    <input asp-for="Text" class="form-control" />
+                    <span asp-validation-for="Text" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Location" class="control-label"></label>
+                    <input asp-for="Location" class="form-control" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Company" class="control-label"></label>
+                    <input asp-for="Company" class="form-control" />
+                    <span asp-validation-for="Company" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>*@
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#bauen'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+    <style>
+        .ck-editor__editable {
+            min-height: 150px;
+        }
+    </style>
+
+}
